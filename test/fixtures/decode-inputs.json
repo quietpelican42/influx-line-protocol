@@ -1,0 +1,686 @@
+[
+ {
+  "name": "minimal",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "cpu v=1"
+ },
+ {
+  "name": "tags-and-time",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "cpu,host=a,region=us v=1 1700000000000000000"
+ },
+ {
+  "name": "all-types",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m i=1i,u=2u,f=3.5,s=\"x y\",b=true"
+ },
+ {
+  "name": "int-extremes",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m a=9223372036854775807i,b=-9223372036854775808i,c=18446744073709551615u,d=0i,e=-0i"
+ },
+ {
+  "name": "float-forms",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m a=1,b=-1.5,c=.5,d=5.,e=1e5,f=1E-5,g=1e+5,h=-0,i=0x1p-2,j=1_000.5,k=4.9e-324,l=1.7976931348623157e308"
+ },
+ {
+  "name": "bool-forms",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m a=t,b=T,c=true,d=True,e=TRUE,f=f,g=F,h=false,i=False,j=FALSE"
+ },
+ {
+  "name": "measurement-escapes",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a\\ b\\,c,t=1 v=1"
+ },
+ {
+  "name": "measurement-equals-and-quote",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a=b\"c v=1"
+ },
+ {
+  "name": "measurement-backslash-quirk",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a\\\\ b v=1"
+ },
+ {
+  "name": "measurement-escaped-space-then-eof",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a\\ v=1"
+ },
+ {
+  "name": "tag-escapes",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,k\\,1\\=2\\ 3=v\\,1\\=2\\ 3 f=1"
+ },
+ {
+  "name": "field-key-escapes",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m a\\ b\\,c\\=d=1,e=2"
+ },
+ {
+  "name": "string-escapes",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"q\\\"q\\\\b\\nn\\rr\\tt\\qx\""
+ },
+ {
+  "name": "string-raw-newline",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"line1\nline2\",t=1"
+ },
+ {
+  "name": "string-raw-crlf",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"a\r\nb\""
+ },
+ {
+  "name": "string-trailing-backslash-quote",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"abc\\\\\""
+ },
+ {
+  "name": "string-empty",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"\""
+ },
+ {
+  "name": "unicode",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "métrique,ключ=значение поле=\"日本語 😀\" 1"
+ },
+ {
+  "name": "bom-kept",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "﻿cpu v=1"
+ },
+ {
+  "name": "nbsp-in-name",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a b v=1"
+ },
+ {
+  "name": "timestamp-negative",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 -5"
+ },
+ {
+  "name": "timestamp-precision-s",
+  "precision": "s",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 1700000000"
+ },
+ {
+  "name": "timestamp-precision-ms",
+  "precision": "ms",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 1700000000123"
+ },
+ {
+  "name": "timestamp-precision-us",
+  "precision": "us",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 1700000000123456"
+ },
+ {
+  "name": "default-time-truncated-s",
+  "precision": "s",
+  "defaultTime": "1700000000999999999",
+  "text": "m v=1"
+ },
+ {
+  "name": "default-time-truncated-ms-negative",
+  "precision": "ms",
+  "defaultTime": "-1999999",
+  "text": "m v=1"
+ },
+ {
+  "name": "default-time-truncated-us",
+  "precision": "us",
+  "defaultTime": "1234567891",
+  "text": "m v=1"
+ },
+ {
+  "name": "two-lines",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a v=1 1\nb v=2 2\n"
+ },
+ {
+  "name": "crlf-lines",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a v=1 1\r\nb v=2 2\r\n"
+ },
+ {
+  "name": "no-trailing-newline",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a v=1\nb v=2"
+ },
+ {
+  "name": "blank-and-comments",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "\n# top\n\na v=1\n   # indented comment\n\r\n# end"
+ },
+ {
+  "name": "spaces-before-time",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1     5"
+ },
+ {
+  "name": "space-before-eol",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 \n"
+ },
+ {
+  "name": "leading-spaces",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "   m v=1"
+ },
+ {
+  "name": "many-fields",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m a=1,b=2,c=3,d=4,e=5,f=6,g=7,h=8"
+ },
+ {
+  "name": "duplicate-tag-keys-kept",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,a=1,a=2 v=1"
+ },
+ {
+  "name": "unsorted-tags-kept",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,z=1,a=2 v=1"
+ },
+ {
+  "name": "duplicate-field-keys-kept",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1,v=2"
+ },
+ {
+  "name": "hash-inside-name",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a#b v=1"
+ },
+ {
+  "name": "empty-input",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": ""
+ },
+ {
+  "name": "only-newlines",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "\n\n\n"
+ },
+ {
+  "name": "only-comment",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "# just a comment"
+ },
+ {
+  "name": "err-invalid-char-start-measurement",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": ",a v=1"
+ },
+ {
+  "name": "err-space-start-after-comment-with-tab",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "  # a\tb\nm v=1"
+ },
+ {
+  "name": "err-comment-invalid-char",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "# a\tb\nm v=1"
+ },
+ {
+  "name": "err-comma-eof",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,"
+ },
+ {
+  "name": "err-comma-space",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m, a=1 v=1"
+ },
+ {
+  "name": "err-tag-key-eof",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,a"
+ },
+ {
+  "name": "err-tag-no-equals-space",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,a v=1"
+ },
+ {
+  "name": "err-tag-empty-key",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,=v f=1"
+ },
+ {
+  "name": "err-tag-key-char",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,\u0001=v f=1"
+ },
+ {
+  "name": "err-tag-value-missing",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,a= v=1"
+ },
+ {
+  "name": "err-tag-value-eof",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,a="
+ },
+ {
+  "name": "err-tags-only",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m,a=1"
+ },
+ {
+  "name": "err-no-fields",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m "
+ },
+ {
+  "name": "err-field-key-none",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m ,v=1"
+ },
+ {
+  "name": "err-field-key-bad-start",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m =1"
+ },
+ {
+  "name": "err-field-no-equals-eof",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v"
+ },
+ {
+  "name": "err-field-no-equals-char",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v 1"
+ },
+ {
+  "name": "err-field-value-eof",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v="
+ },
+ {
+  "name": "err-field-value-space",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v= 1"
+ },
+ {
+  "name": "err-field-value-comma",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=,x=1"
+ },
+ {
+  "name": "err-string-unclosed",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"abc"
+ },
+ {
+  "name": "err-string-unclosed-escaped-quote",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"abc\\\""
+ },
+ {
+  "name": "err-unrecognized-type",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=abc"
+ },
+ {
+  "name": "err-unrecognized-type-newline",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=\nx v=1"
+ },
+ {
+  "name": "err-after-field-char",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m s=\"a\"b"
+ },
+ {
+  "name": "err-float-trailing-x",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m a=1x"
+ },
+ {
+  "name": "err-bad-int",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1.5i"
+ },
+ {
+  "name": "err-bad-uint",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=-1u"
+ },
+ {
+  "name": "err-int-range",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=9223372036854775808i"
+ },
+ {
+  "name": "err-int-neg-range",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=-9223372036854775809i"
+ },
+ {
+  "name": "err-uint-range",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=18446744073709551616u"
+ },
+ {
+  "name": "err-int-overflow-then-garbage",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=99999999999999999999x9i"
+ },
+ {
+  "name": "err-int-underscore",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1_0i"
+ },
+ {
+  "name": "err-float-range",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1e999"
+ },
+ {
+  "name": "err-float-syntax",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1.5.5"
+ },
+ {
+  "name": "err-float-inf",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=-inf"
+ },
+ {
+  "name": "err-float-infinity",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=-Infinity"
+ },
+ {
+  "name": "err-float-nan",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=-nan"
+ },
+ {
+  "name": "err-float-underscore",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1__0"
+ },
+ {
+  "name": "err-float-hex-no-exp",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=0x1"
+ },
+ {
+  "name": "err-hex-float-range",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=0x1p1024"
+ },
+ {
+  "name": "err-bool",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=tru"
+ },
+ {
+  "name": "err-bool-suffix",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=trueX"
+ },
+ {
+  "name": "err-timestamp-garbage",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 abc"
+ },
+ {
+  "name": "err-timestamp-trailing-garbage",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 12ab"
+ },
+ {
+  "name": "err-timestamp-minus",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 1-2"
+ },
+ {
+  "name": "err-timestamp-range",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 9223372036854775808"
+ },
+ {
+  "name": "err-timestamp-scaled-range",
+  "precision": "s",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 9223372037"
+ },
+ {
+  "name": "timestamp-just-fits",
+  "precision": "s",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 9223372036"
+ },
+ {
+  "name": "err-text-after-timestamp",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 5 6"
+ },
+ {
+  "name": "err-lone-cr-after-timestamp",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=1 5 \rx v=2"
+ },
+ {
+  "name": "err-lone-cr-line",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "\rm v=1"
+ },
+ {
+  "name": "err-invalid-utf8-measurement",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6dff20763d31"
+ },
+ {
+  "name": "err-invalid-utf8-tag-value",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6d2c613dc32820763d31"
+ },
+ {
+  "name": "err-invalid-utf8-string",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6d20733d22f0288c2822"
+ },
+ {
+  "name": "err-invalid-utf8-surrogate",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6d20733d22eda08022"
+ },
+ {
+  "name": "err-invalid-utf8-overlong",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6d20733d22c0af22"
+ },
+ {
+  "name": "err-nul-in-name",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "61006220763d31"
+ },
+ {
+  "name": "err-del-in-name",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "617f6220763d31"
+ },
+ {
+  "name": "err-quote-of-control-char",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m v=\u001f1"
+ },
+ {
+  "name": "err-quote-of-high-byte",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6d20763de9"
+ },
+ {
+  "name": "tag-key-nbsp",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6d2cc2a03d7620663d31"
+ },
+ {
+  "name": "recover-after-bad-line",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "ok1 v=1\nbad line\nok2 v=2 5\n"
+ },
+ {
+  "name": "recover-two-errors",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a v=x\nb v=y\nc v=1"
+ },
+ {
+  "name": "recover-error-after-multiline-string",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a s=\"one\ntwo\nthree\",v=\nb v=1"
+ },
+ {
+  "name": "recover-error-col-after-multiline-string",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a s=\"one\ntwo\",v=zz\nb v=1"
+ },
+ {
+  "name": "recover-comment-blank-lines-count",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "# c\n\n\nbad\nok v=1"
+ },
+ {
+  "name": "recover-crlf-error-col",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "ok v=1\r\nbad v\r\nok v=2\r\n"
+ },
+ {
+  "name": "recover-error-then-cr",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a v=1 x\rb v=2"
+ },
+ {
+  "name": "recover-unclosed-string-eats-input",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "a s=\"never closed\nb v=1\nc v=2"
+ },
+ {
+  "name": "recover-invalid-utf8-then-good",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "hex": "6120733d22ff220a6220763d310a"
+ },
+ {
+  "name": "field-parse-error-col-with-escaped-key",
+  "precision": "ns",
+  "defaultTime": "1000000000000000123",
+  "text": "m a\\ b\\,c=1.2.3"
+ }
+]

@@ -1,0 +1,194 @@
+{
+ "oracle": "go version go1.27.1 darwin/arm64",
+ "cases": [
+  {
+   "name": "plain",
+   "expected": {
+    "ok": true,
+    "out": "cpu v=1\n"
+   }
+  },
+  {
+   "name": "tags-and-time",
+   "expected": {
+    "ok": true,
+    "out": "cpu,a=1,b=2 v=1 1700000000000000000\n"
+   }
+  },
+  {
+   "name": "all-types",
+   "expected": {
+    "ok": true,
+    "out": "cpu f=2.5,i=-3i,u=18446744073709551615u,s=\"a \\\"b\\\"\\nc\\\\d\\te\\rf\",b=true,c=false\n"
+   }
+  },
+  {
+   "name": "escapes",
+   "expected": {
+    "ok": true,
+    "out": "a\\ b\\,c,k\\ 1=v\\,\\=2 f\\ g\\,h\\=i=1\n"
+   }
+  },
+  {
+   "name": "measurement-equals-not-escaped",
+   "expected": {
+    "ok": true,
+    "out": "a=b v=1\n"
+   }
+  },
+  {
+   "name": "floats-e-notation",
+   "expected": {
+    "ok": true,
+    "out": "cpu a=1e+21,b=1e-05,c=100000,d=1e+06,e=1.23456789e+08,f=0.0001,g=-0,h=5e-324,i=1.7976931348623157e+308,j=0.3333333333333333\n"
+   }
+  },
+  {
+   "name": "timestamp-zero",
+   "expected": {
+    "ok": true,
+    "out": "cpu v=1 0\n"
+   }
+  },
+  {
+   "name": "timestamp-negative-truncates-toward-zero",
+   "expected": {
+    "ok": true,
+    "out": "cpu v=1 -1\n"
+   }
+  },
+  {
+   "name": "timestamp-precision-s",
+   "expected": {
+    "ok": true,
+    "out": "cpu v=1 1700000000\n"
+   }
+  },
+  {
+   "name": "timestamp-precision-ms",
+   "expected": {
+    "ok": true,
+    "out": "cpu v=1 1700000000999\n"
+   }
+  },
+  {
+   "name": "unicode",
+   "expected": {
+    "ok": true,
+    "out": "métrique,ключ=значение поле=\"日本語 😀\"\n"
+   }
+  },
+  {
+   "name": "tags-utf8-order",
+   "expected": {
+    "ok": true,
+    "out": "cpu,=1,😀=2 v=1\n"
+   }
+  },
+  {
+   "name": "err-empty-measurement",
+   "expected": {
+    "ok": false,
+    "err": "invalid measurement \"\""
+   }
+  },
+  {
+   "name": "err-control-char-measurement",
+   "expected": {
+    "ok": false,
+    "err": "invalid measurement \"a\\tb\""
+   }
+  },
+  {
+   "name": "err-measurement-trailing-backslash",
+   "expected": {
+    "ok": false,
+    "err": "invalid measurement \"a\\\\\""
+   }
+  },
+  {
+   "name": "err-tag-key-empty",
+   "expected": {
+    "ok": false,
+    "err": "invalid tag key \"\""
+   }
+  },
+  {
+   "name": "err-tag-value-empty",
+   "expected": {
+    "ok": false,
+    "err": "invalid tag value k=\"\""
+   }
+  },
+  {
+   "name": "err-tag-out-of-order",
+   "expected": {
+    "ok": false,
+    "err": "tag key \"a\" out of order (previous key \"b\")"
+   }
+  },
+  {
+   "name": "err-tag-duplicate",
+   "expected": {
+    "ok": false,
+    "err": "tag key \"a\" out of order (previous key \"a\")"
+   }
+  },
+  {
+   "name": "err-tag-value-trailing-backslash",
+   "expected": {
+    "ok": false,
+    "err": "invalid tag value a=\"x\\\\\""
+   }
+  },
+  {
+   "name": "err-field-key-empty",
+   "expected": {
+    "ok": false,
+    "err": "invalid field key \"\""
+   }
+  },
+  {
+   "name": "err-no-fields",
+   "expected": {
+    "ok": false,
+    "err": "timestamp must be added after adding at least one field"
+   }
+  },
+  {
+   "name": "err-nan",
+   "expected": {
+    "ok": false,
+    "err": "invalid field value"
+   }
+  },
+  {
+   "name": "err-inf",
+   "expected": {
+    "ok": false,
+    "err": "invalid field value"
+   }
+  },
+  {
+   "name": "err-value-before-key",
+   "expected": {
+    "ok": false,
+    "err": "invalid field value"
+   }
+  },
+  {
+   "name": "err-first-error-wins",
+   "expected": {
+    "ok": false,
+    "err": "invalid measurement \"\""
+   }
+  },
+  {
+   "name": "keeps-field-order-and-duplicates",
+   "expected": {
+    "ok": true,
+    "out": "cpu b=1i,a=2i,b=3i\n"
+   }
+  }
+ ]
+}

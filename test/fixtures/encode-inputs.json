@@ -1,0 +1,568 @@
+[
+ {
+  "name": "plain",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "tags-and-time",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [
+    [
+     "a",
+     "1"
+    ],
+    [
+     "b",
+     "2"
+    ]
+   ],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": "1700000000000000000"
+  }
+ },
+ {
+  "name": "all-types",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "f",
+     "float",
+     "4004000000000000"
+    ],
+    [
+     "i",
+     "int",
+     "-3"
+    ],
+    [
+     "u",
+     "uint",
+     "18446744073709551615"
+    ],
+    [
+     "s",
+     "string",
+     "a \"b\"\nc\\d\te\rf"
+    ],
+    [
+     "b",
+     "bool",
+     "true"
+    ],
+    [
+     "c",
+     "bool",
+     "false"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "escapes",
+  "precision": "ns",
+  "point": {
+   "name": "a b,c",
+   "tags": [
+    [
+     "k 1",
+     "v,=2"
+    ]
+   ],
+   "fields": [
+    [
+     "f g,h=i",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "measurement-equals-not-escaped",
+  "precision": "ns",
+  "point": {
+   "name": "a=b",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "floats-e-notation",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "a",
+     "float",
+     "444b1ae4d6e2ef50"
+    ],
+    [
+     "b",
+     "float",
+     "3ee4f8b588e368f1"
+    ],
+    [
+     "c",
+     "float",
+     "40f86a0000000000"
+    ],
+    [
+     "d",
+     "float",
+     "412e848000000000"
+    ],
+    [
+     "e",
+     "float",
+     "419d6f3454000000"
+    ],
+    [
+     "f",
+     "float",
+     "3f1a36e2eb1c432d"
+    ],
+    [
+     "g",
+     "float",
+     "8000000000000000"
+    ],
+    [
+     "h",
+     "float",
+     "1"
+    ],
+    [
+     "i",
+     "float",
+     "7fefffffffffffff"
+    ],
+    [
+     "j",
+     "float",
+     "3fd5555555555555"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "timestamp-zero",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": "0"
+  }
+ },
+ {
+  "name": "timestamp-negative-truncates-toward-zero",
+  "precision": "us",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": "-1999"
+  }
+ },
+ {
+  "name": "timestamp-precision-s",
+  "precision": "s",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": "1700000000999999999"
+  }
+ },
+ {
+  "name": "timestamp-precision-ms",
+  "precision": "ms",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": "1700000000999999999"
+  }
+ },
+ {
+  "name": "unicode",
+  "precision": "ns",
+  "point": {
+   "name": "métrique",
+   "tags": [
+    [
+     "ключ",
+     "значение"
+    ]
+   ],
+   "fields": [
+    [
+     "поле",
+     "string",
+     "日本語 😀"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "tags-utf8-order",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [
+    [
+     "",
+     "1"
+    ],
+    [
+     "😀",
+     "2"
+    ]
+   ],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-empty-measurement",
+  "precision": "ns",
+  "point": {
+   "name": "",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-control-char-measurement",
+  "precision": "ns",
+  "point": {
+   "name": "a\tb",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-measurement-trailing-backslash",
+  "precision": "ns",
+  "point": {
+   "name": "a\\",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-tag-key-empty",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [
+    [
+     "",
+     "v"
+    ]
+   ],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-tag-value-empty",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [
+    [
+     "k",
+     ""
+    ]
+   ],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-tag-out-of-order",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [
+    [
+     "b",
+     "1"
+    ],
+    [
+     "a",
+     "2"
+    ]
+   ],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-tag-duplicate",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [
+    [
+     "a",
+     "1"
+    ],
+    [
+     "a",
+     "2"
+    ]
+   ],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-tag-value-trailing-backslash",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [
+    [
+     "a",
+     "x\\"
+    ]
+   ],
+   "fields": [
+    [
+     "v",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-field-key-empty",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "",
+     "float",
+     "3ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-no-fields",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-nan",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "7ff8000000000001"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-inf",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "v",
+     "float",
+     "7ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-value-before-key",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "",
+     "float",
+     "7ff0000000000000"
+    ]
+   ],
+   "ts": null
+  }
+ },
+ {
+  "name": "err-first-error-wins",
+  "precision": "ns",
+  "point": {
+   "name": "",
+   "tags": [
+    [
+     "",
+     ""
+    ]
+   ],
+   "fields": [],
+   "ts": null
+  }
+ },
+ {
+  "name": "keeps-field-order-and-duplicates",
+  "precision": "ns",
+  "point": {
+   "name": "cpu",
+   "tags": [],
+   "fields": [
+    [
+     "b",
+     "int",
+     "1"
+    ],
+    [
+     "a",
+     "int",
+     "2"
+    ],
+    [
+     "b",
+     "int",
+     "3"
+    ]
+   ],
+   "ts": null
+  }
+ }
+]

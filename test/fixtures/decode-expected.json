@@ -1,0 +1,2144 @@
+{
+ "oracle": "go version go1.27.1 darwin/arm64",
+ "cases": [
+  {
+   "name": "minimal",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "cpu",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "tags-and-time",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "cpu",
+      "tags": [
+       [
+        "host",
+        "a"
+       ],
+       [
+        "region",
+        "us"
+       ]
+      ],
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1700000000000000000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "all-types",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "i",
+        "int",
+        "1"
+       ],
+       [
+        "u",
+        "uint",
+        "2"
+       ],
+       [
+        "f",
+        "float",
+        "400c000000000000"
+       ],
+       [
+        "s",
+        "string",
+        "x y"
+       ],
+       [
+        "b",
+        "bool",
+        "true"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "int-extremes",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "a",
+        "int",
+        "9223372036854775807"
+       ],
+       [
+        "b",
+        "int",
+        "-9223372036854775808"
+       ],
+       [
+        "c",
+        "uint",
+        "18446744073709551615"
+       ],
+       [
+        "d",
+        "int",
+        "0"
+       ],
+       [
+        "e",
+        "int",
+        "0"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "float-forms",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "a",
+        "float",
+        "3ff0000000000000"
+       ],
+       [
+        "b",
+        "float",
+        "bff8000000000000"
+       ],
+       [
+        "c",
+        "float",
+        "3fe0000000000000"
+       ],
+       [
+        "d",
+        "float",
+        "4014000000000000"
+       ],
+       [
+        "e",
+        "float",
+        "40f86a0000000000"
+       ],
+       [
+        "f",
+        "float",
+        "3ee4f8b588e368f1"
+       ],
+       [
+        "g",
+        "float",
+        "40f86a0000000000"
+       ],
+       [
+        "h",
+        "float",
+        "8000000000000000"
+       ],
+       [
+        "i",
+        "float",
+        "3fd0000000000000"
+       ],
+       [
+        "j",
+        "float",
+        "408f440000000000"
+       ],
+       [
+        "k",
+        "float",
+        "1"
+       ],
+       [
+        "l",
+        "float",
+        "7fefffffffffffff"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "bool-forms",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "a",
+        "bool",
+        "true"
+       ],
+       [
+        "b",
+        "bool",
+        "true"
+       ],
+       [
+        "c",
+        "bool",
+        "true"
+       ],
+       [
+        "d",
+        "bool",
+        "true"
+       ],
+       [
+        "e",
+        "bool",
+        "true"
+       ],
+       [
+        "f",
+        "bool",
+        "false"
+       ],
+       [
+        "g",
+        "bool",
+        "false"
+       ],
+       [
+        "h",
+        "bool",
+        "false"
+       ],
+       [
+        "i",
+        "bool",
+        "false"
+       ],
+       [
+        "j",
+        "bool",
+        "false"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "measurement-escapes",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a b,c",
+      "tags": [
+       [
+        "t",
+        "1"
+       ]
+      ],
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "measurement-equals-and-quote",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a=b\"c",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "measurement-backslash-quirk",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a\\ b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "measurement-escaped-space-then-eof",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 7,
+      "msg": "expected tag key or field but found end of input instead"
+     }
+    ]
+   }
+  },
+  {
+   "name": "tag-escapes",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "tags": [
+       [
+        "k,1=2 3",
+        "v,1=2 3"
+       ]
+      ],
+      "fields": [
+       [
+        "f",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "field-key-escapes",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "a b,c=d",
+        "float",
+        "3ff0000000000000"
+       ],
+       [
+        "e",
+        "float",
+        "4000000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "string-escapes",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "s",
+        "string",
+        "q\"q\\b\nn\rr\tt\\qx"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "string-raw-newline",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "s",
+        "string",
+        "line1\nline2"
+       ],
+       [
+        "t",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "string-raw-crlf",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "s",
+        "string",
+        "a\r\nb"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "string-trailing-backslash-quote",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "s",
+        "string",
+        "abc\\"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "string-empty",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "s",
+        "string",
+        ""
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "unicode",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "métrique",
+      "tags": [
+       [
+        "ключ",
+        "значение"
+       ]
+      ],
+      "fields": [
+       [
+        "поле",
+        "string",
+        "日本語 😀"
+       ]
+      ],
+      "ts": "1"
+     }
+    ]
+   }
+  },
+  {
+   "name": "bom-kept",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "﻿cpu",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "nbsp-in-name",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "timestamp-negative",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "-5"
+     }
+    ]
+   }
+  },
+  {
+   "name": "timestamp-precision-s",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1700000000000000000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "timestamp-precision-ms",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1700000000123000000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "timestamp-precision-us",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1700000000123456000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "default-time-truncated-s",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1700000000000000000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "default-time-truncated-ms-negative",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "-2000000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "default-time-truncated-us",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1234567000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "two-lines",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1"
+     },
+     {
+      "k": "p",
+      "name": "b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "4000000000000000"
+       ]
+      ],
+      "ts": "2"
+     }
+    ]
+   }
+  },
+  {
+   "name": "crlf-lines",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1"
+     },
+     {
+      "k": "p",
+      "name": "b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "4000000000000000"
+       ]
+      ],
+      "ts": "2"
+     }
+    ]
+   }
+  },
+  {
+   "name": "no-trailing-newline",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     },
+     {
+      "k": "p",
+      "name": "b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "4000000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "blank-and-comments",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "spaces-before-time",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "5"
+     }
+    ]
+   }
+  },
+  {
+   "name": "space-before-eol",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "leading-spaces",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "many-fields",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "a",
+        "float",
+        "3ff0000000000000"
+       ],
+       [
+        "b",
+        "float",
+        "4000000000000000"
+       ],
+       [
+        "c",
+        "float",
+        "4008000000000000"
+       ],
+       [
+        "d",
+        "float",
+        "4010000000000000"
+       ],
+       [
+        "e",
+        "float",
+        "4014000000000000"
+       ],
+       [
+        "f",
+        "float",
+        "4018000000000000"
+       ],
+       [
+        "g",
+        "float",
+        "401c000000000000"
+       ],
+       [
+        "h",
+        "float",
+        "4020000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "duplicate-tag-keys-kept",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "tags": [
+       [
+        "a",
+        "1"
+       ],
+       [
+        "a",
+        "2"
+       ]
+      ],
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "unsorted-tags-kept",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "tags": [
+       [
+        "z",
+        "1"
+       ],
+       [
+        "a",
+        "2"
+       ]
+      ],
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "duplicate-field-keys-kept",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ],
+       [
+        "v",
+        "float",
+        "4000000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "hash-inside-name",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "a#b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "empty-input",
+   "expected": {}
+  },
+  {
+   "name": "only-newlines",
+   "expected": {}
+  },
+  {
+   "name": "only-comment",
+   "expected": {}
+  },
+  {
+   "name": "err-invalid-char-start-measurement",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 1,
+      "msg": "invalid character ',' found at start of measurement name"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-space-start-after-comment-with-tab",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 1,
+      "msg": "invalid character ' ' found at start of measurement name"
+     },
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-comment-invalid-char",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 1,
+      "msg": "invalid character found in comment line"
+     },
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-comma-eof",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "expected tag key after comma; got end of input"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-comma-space",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "expected tag key after comma; got white space instead"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-tag-key-eof",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "expected '=' after tag key \"a\", but got end of input instead"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-tag-no-equals-space",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "expected '=' after tag key \"a\", but got ' ' instead"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-tag-empty-key",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "empty tag key"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-tag-key-char",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "expected tag key or field but found '\\x01' instead"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-tag-value-missing",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "expected tag value after tag key \"a\", but none found"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-tag-value-eof",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "expected tag value after tag key \"a\", but none found"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-tags-only",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 6,
+      "msg": "expected field key but none found"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-no-fields",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "expected field key but none found"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-field-key-none",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "invalid character ',' found at start of field key"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-field-key-bad-start",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 3,
+      "msg": "invalid character '=' found at start of field key"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-field-no-equals-eof",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 4,
+      "msg": "want '=' after field key \"v\", found end of input"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-field-no-equals-char",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 4,
+      "msg": "want '=' after field key \"v\", found ' '"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-field-value-eof",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "expected value for field \"v\", found end of input"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-field-value-space",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "missing field value for field \"v\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-field-value-comma",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "missing field value for field \"v\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-string-unclosed",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "expected closing quote for string field \"s\", found end of input"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-string-unclosed-escaped-quote",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "expected closing quote for string field \"s\", found end of input"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-unrecognized-type",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "value for field \"v\" (\"abc\") has unrecognized type"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-unrecognized-type-newline",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "value for field \"v\" (\"\") has unrecognized type"
+     },
+     {
+      "k": "p",
+      "name": "x",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-after-field-char",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 8,
+      "msg": "unexpected character 'b' after field \"s\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-trailing-x",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"a\": invalid float value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-bad-int",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid integer value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-bad-uint",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid unsigned integer value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-int-range",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-int-neg-range",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-uint-range",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-int-overflow-then-garbage",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-int-underscore",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid integer value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-range",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-syntax",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid float value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-inf",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": non-number \"-inf\" cannot be represented as a line-protocol field value"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-infinity",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": non-number \"-Infinity\" cannot be represented as a line-protocol field value"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-nan",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid float value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-underscore",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid float value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-float-hex-no-exp",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid float value syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-hex-float-range",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-bool",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid bool value \"tru\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-bool-suffix",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "cannot parse value for field key \"v\": invalid bool value \"trueX\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-timestamp-garbage",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 7,
+      "msg": "invalid timestamp (\"abc\")"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-timestamp-trailing-garbage",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 7,
+      "msg": "invalid timestamp (\"12ab\")"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-timestamp-minus",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 7,
+      "msg": "invalid timestamp (\"1-2\"): invalid syntax"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-timestamp-range",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 7,
+      "msg": "invalid timestamp (\"9223372036854775808\"): line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-timestamp-scaled-range",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 7,
+      "msg": "invalid timestamp (\"9223372037\"): line-protocol value out of range",
+      "oor": true
+     }
+    ]
+   }
+  },
+  {
+   "name": "timestamp-just-fits",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "9223372036000000000"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-text-after-timestamp",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 9,
+      "msg": "unexpected text after timestamp (\"6\")"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-lone-cr-after-timestamp",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 9,
+      "msg": "unexpected text after timestamp (\"\")"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-lone-cr-line",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 1,
+      "msg": "invalid character '\\r' found at start of measurement name"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-invalid-utf8-measurement",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 1,
+      "msg": "invalid utf-8 sequence in token \"m\\xff\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-invalid-utf8-tag-value",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "invalid utf-8 sequence in token \"\\xc3(\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-invalid-utf8-string",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 6,
+      "msg": "invalid utf-8 sequence in token \"\\xf0(\\x8c(\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-invalid-utf8-surrogate",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 6,
+      "msg": "invalid utf-8 sequence in token \"\\xed\\xa0\\x80\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-invalid-utf8-overlong",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 6,
+      "msg": "invalid utf-8 sequence in token \"\\xc0\\xaf\""
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-nul-in-name",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 2,
+      "msg": "expected tag key or field but found '\\x00' instead"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-del-in-name",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 2,
+      "msg": "expected tag key or field but found '\\x7f' instead"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-quote-of-control-char",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "value for field \"v\" (\"\\x1f1\") has unrecognized type"
+     }
+    ]
+   }
+  },
+  {
+   "name": "err-quote-of-high-byte",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "value for field \"v\" (\"\\xe9\") has unrecognized type"
+     }
+    ]
+   }
+  },
+  {
+   "name": "tag-key-nbsp",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "m",
+      "tags": [
+       [
+        " ",
+        "v"
+       ]
+      ],
+      "fields": [
+       [
+        "f",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-after-bad-line",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "ok1",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     },
+     {
+      "k": "e",
+      "line": 2,
+      "col": 9,
+      "msg": "want '=' after field key \"line\", found '\\n'"
+     },
+     {
+      "k": "p",
+      "name": "ok2",
+      "fields": [
+       [
+        "v",
+        "float",
+        "4000000000000000"
+       ]
+      ],
+      "ts": "5"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-two-errors",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "value for field \"v\" (\"x\") has unrecognized type"
+     },
+     {
+      "k": "e",
+      "line": 2,
+      "col": 5,
+      "msg": "value for field \"v\" (\"y\") has unrecognized type"
+     },
+     {
+      "k": "p",
+      "name": "c",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-error-after-multiline-string",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 3,
+      "col": 10,
+      "msg": "value for field \"v\" (\"\") has unrecognized type"
+     },
+     {
+      "k": "p",
+      "name": "b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-error-col-after-multiline-string",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 2,
+      "col": 8,
+      "msg": "value for field \"v\" (\"zz\") has unrecognized type"
+     },
+     {
+      "k": "p",
+      "name": "b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-comment-blank-lines-count",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 4,
+      "col": 4,
+      "msg": "expected tag key or field but found '\\n' instead"
+     },
+     {
+      "k": "p",
+      "name": "ok",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-crlf-error-col",
+   "expected": {
+    "entries": [
+     {
+      "k": "p",
+      "name": "ok",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     },
+     {
+      "k": "e",
+      "line": 2,
+      "col": 6,
+      "msg": "want '=' after field key \"v\", found '\\r'"
+     },
+     {
+      "k": "p",
+      "name": "ok",
+      "fields": [
+       [
+        "v",
+        "float",
+        "4000000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-error-then-cr",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 7,
+      "msg": "invalid timestamp (\"x\")"
+     },
+     {
+      "k": "e",
+      "line": 1,
+      "col": 1,
+      "msg": "invalid character '\\r' found at start of measurement name"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-unclosed-string-eats-input",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 5,
+      "msg": "expected closing quote for string field \"s\", found end of input"
+     }
+    ]
+   }
+  },
+  {
+   "name": "recover-invalid-utf8-then-good",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 6,
+      "msg": "invalid utf-8 sequence in token \"\\xff\""
+     },
+     {
+      "k": "p",
+      "name": "b",
+      "fields": [
+       [
+        "v",
+        "float",
+        "3ff0000000000000"
+       ]
+      ],
+      "ts": "1000000000000000123"
+     }
+    ]
+   }
+  },
+  {
+   "name": "field-parse-error-col-with-escaped-key",
+   "expected": {
+    "entries": [
+     {
+      "k": "e",
+      "line": 1,
+      "col": 11,
+      "msg": "cannot parse value for field key \"a b,c\": invalid float value syntax"
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "influx-line-protocol",
+  "version": "0.1.0",
+  "description": "InfluxDB line protocol decoder and encoder for Node that accepts and rejects exactly what the reference Go implementation does.",
+  "keywords": [
+    "influxdb",
+    "line-protocol",
+    "influx",
+    "parser",
+    "decoder",
+    "encoder",
+    "telegraf",
+    "metrics",
+    "timeseries"
+  ],
+  "license": "MIT",
+  "author": "__AUTHOR__",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/__GH_OWNER__/influx-line-protocol.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "LICENSE-line-protocol",
+    "LICENSE-go"
+  ],
+  "scripts": {
+    "test": "node --test \"test/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && node scripts/fix-dts.mjs",
+    "fuzz": "node scripts/fuzz.ts",
+    "bench:corpus": "node bench/corpus-compare.ts",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build && npm run test:dist",
+    "test:dist": "node --test test/smoke.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0"
+  }
+}
